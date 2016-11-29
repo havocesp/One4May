@@ -5,7 +5,7 @@ import java.io.IOException;
 public class ScriptCreator {
 
 	public static int FREEZETIME = 5000;
-	public static int INTERVAL = 1000;
+	public static int INTERVAL = 1500;
 	
 	public static final String DEFAULT_OUTPUT_FILE = "autoscript.sh";
 	
@@ -48,6 +48,8 @@ public class ScriptCreator {
 			FileWriter writer = new FileWriter(file);
 			writer.write(scriptText);
 			writer.close();
+			
+			Runtime.getRuntime().exec("chmod u+x " + outputFile);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
